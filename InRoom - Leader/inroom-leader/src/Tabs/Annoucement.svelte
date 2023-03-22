@@ -10,8 +10,7 @@
     
     <img src="AnnouncementExample.png" alt="AnnouncementExample" />
     <button href="#" class="float" on:click={handleClick}
-        ><img src="Announcement icon.png" alt="Announcement" /></button
-    >
+        ><img src="Announcement icon.png" alt="Announcement" /></button>
 </div>
 
 

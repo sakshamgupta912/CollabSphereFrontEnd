@@ -1,6 +1,7 @@
 <body>
     <div class="AssignmentExample" >
         <img src="AssignmentExample.png" alt="AssignmentExample"  />
+       
     </div>
     </body>
     
@@ -12,6 +13,6 @@
         .AssignmentExample img{
             width: 80%;
         }
-    
+        
     </style>
     
