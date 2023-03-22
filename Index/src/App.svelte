@@ -42,7 +42,7 @@
     </div>
   </header>
   
-  <BOX></BOX>
+  
 </body>
 
 <style>

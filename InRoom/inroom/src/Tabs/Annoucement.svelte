@@ -1,8 +1,8 @@
-<body>
+
 <div class="AnnouncementExample" >
     <img src="AnnouncementExample.png" alt="AnnouncementExample"  />
 </div>
-</body>
+
 
 <style>
     .AnnouncementExample{
