@@ -1,32 +1,50 @@
 <script>
 	let subject = "";
 	let message = "";
-	let attachments = [];
+	let files = [];
 
-	function handleAttachmentChange(event) {
-		// update attachments array with selected files
-		attachments = [...event.target.files];
-	}
+	const handleSubmit = () => {
+		const formData = new FormData();
 
-	function handleSubmit() {
-		// handle form submission with attachments
-	}
-	function handleReset()
-	{
+		formData.append("subject", subject);
+		formData.append("message", message);
+
+		for (let i = 0; i < files.length; i++) {
+			formData.append("files", files[i]);
+		}
+
+		fetch("/api/send", {
+			method: "POST",
+			body: formData,
+		}).then((response) => {
+			if (response.ok) {
+				alert("Message sent successfully!");
+			} else {
+				alert("Failed to send message.");
+			}
+		});
+	};
+
+	const handleReset = () => {
 		subject = "";
 		message = "";
-		attachments = [];
-	}
-	function handleRemoveAllAttachment()
-	{
-		console.log("hi")
-		attachments = [];
-	}
+		files = [];
+	};
 
+	const handleFileChange = (event) => {
+		files = [...event.target.files];
+	};
+
+	const handleRemoveFile = (index) => {
+		files.splice(index, 1);
+		files = [...files];
+	};
 </script>
 
 
-<form class="ComposeAnnouncement" on:submit|preventDefault={handleSubmit} on:Reset|preventDefault={handleReset} >
+<div class="ComposeAnnouncement">
+	<h1 style="font-size:1.5rem">Announcement</h1>
+	<div class="message-section">
 		<div class="compose-field">
 			<label for="subject">Subject</label>
 			<input id="subject" type="text" bind:value={subject} required />
@@ -36,42 +54,53 @@
 			<label for="message">Message</label>
 			<textarea id="message" bind:value={message} required />
 		</div>
+	</div>
 
+	<div class="upload-section">
 		<div class="attachment-field">
 			<label for="attachments">Attachments</label>
 			<input
 				id="attachments"
 				type="file"
 				multiple
-				onchange={handleAttachmentChange}
+				on:change={handleFileChange}
 			/>
 		</div>
-		<button type="submit">Send</button>
-		<button type="Reset" >Reset</button>
-</form>
 
-	
+		{#if files.length > 0}
+			<ul>
+				{#each files as file, index}
+					<li key={index}>
+						{file.name}
+						<button on:click={() => handleRemoveFile(index)}
+							>Remove</button
+						>
+					</li>
+				{/each}
+			</ul>
+		{/if}
+	</div>
 
+	<div class="buttons-section">
+		<button on:click={handleSubmit}>Send</button>
+		<button on:click={handleReset}>Reset</button>
+	</div>
+</div>
 
 <style>
-	.ComposeAnnouncement{
-
-        
-		background-color:rgba(255, 87, 87, 0.486);
-		margin: 20px;
-		padding: 5px;
+	h1{
+font-size:1rem;
+}
+	.ComposeAnnouncement {
+		padding: 10px;
+		background-color: rgba(255, 87, 87, 0.486);
+		margin: 10%;
 		border-radius: 10px;
-        height: 505px;
-        width: 500px;
-		;
 	}
 	.compose-field {
 		display: flex;
 		flex-direction: column;
-		
-		margin: 30px;
-		top:100px;
-		
+		margin-bottom: 20px;
 	}
 
 	label {
@@ -97,12 +126,11 @@
 		background-color: #4285f4;
 		color: #fff;
 		border: none;
-		margin-left:30px;
 		border-radius: 0.25rem;
 		padding: 0.5rem 1rem;
 		font-size: 1rem;
 		cursor: pointer;
-		
+		margin-right: 10px;
 	}
 
 	button:hover {
@@ -116,11 +144,6 @@
 	.attachment-field {
 		display: flex;
 		flex-direction: column;
-		margin: 30px;
-		
-	}
-
-	.attachment-field input[type="file"] {
-		margin-bottom: 0.5rem;
+		margin-bottom: 20px;
 	}
 </style>
