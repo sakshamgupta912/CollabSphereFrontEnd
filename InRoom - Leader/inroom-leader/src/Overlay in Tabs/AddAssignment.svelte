@@ -35,10 +35,11 @@
     };
 
     const handleReset = () => {
-		subject = "";
-		message = "";
-		files = [];
-	};
+  title = '';
+  description = '';
+  files = [];
+};
+
   </script>
 
 <div class="AddAssignment">

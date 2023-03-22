@@ -68,9 +68,9 @@
 		</div>
 
 		{#if files.length > 0}
-			<ul>
+			<ul style="list-style-type: none">
 				{#each files as file, index}
-					<li key={index}>
+					<li key={index}  style="list-style-type: none">
 						{file.name}
 						<button on:click={() => handleRemoveFile(index)}
 							>Remove</button
