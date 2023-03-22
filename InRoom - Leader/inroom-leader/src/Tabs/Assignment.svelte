@@ -2,7 +2,7 @@
     import AddAssignment from "../Overlay in Tabs/AddAssignment.svelte";
 </script>
 <body>
-    <AddAssignment></AddAssignment>
+    <!-- <AddAssignment></AddAssignment> -->
     <div class="AssignmentExample" >
         <img src="AssignmentExample.png" alt="AssignmentExample"  />
         <button href="#" class="float" 
