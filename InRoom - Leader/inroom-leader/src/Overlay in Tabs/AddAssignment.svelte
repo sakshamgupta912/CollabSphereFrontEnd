@@ -12,7 +12,7 @@
       files = [...files];
     };
 
-    const handleSubmit = () => {
+    const handleAdd = () => {
 		const formData = new FormData();
 
 		formData.append("", title);
@@ -61,7 +61,7 @@
     {/each}
   </div>
   <div class="buttons-section">
-    <button on:click={handleSubmit}>Send</button>
+    <button on:click={handleAdd}>Add</button>
     <button on:click={handleReset}>Reset</button>
 </div>
 </div>

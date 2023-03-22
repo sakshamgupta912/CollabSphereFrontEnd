@@ -3,9 +3,9 @@
     let overlay_announcement_overlay = false;
     function handleClick(){}   
 </script>
-<!-- <ComposeAnnouncement>
+<ComposeAnnouncement>
     
-</ComposeAnnouncement> -->
+</ComposeAnnouncement>
 <div class="AnnouncementExample">
     
     <img src="AnnouncementExample.png" alt="AnnouncementExample" />

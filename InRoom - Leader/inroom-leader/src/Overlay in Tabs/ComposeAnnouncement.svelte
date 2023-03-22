@@ -3,7 +3,7 @@
 	let message = "";
 	let files = [];
 
-	const handleSubmit = () => {
+	const handleAnnounce = () => {
 		const formData = new FormData();
 
 		formData.append("subject", subject);
@@ -82,7 +82,7 @@
 	</div>
 
 	<div class="buttons-section">
-		<button on:click={handleSubmit}>Send</button>
+		<button on:click={handleAnnounce}>Announce</button>
 		<button on:click={handleReset}>Reset</button>
 	</div>
 </div>
