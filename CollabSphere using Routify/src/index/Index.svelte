@@ -48,8 +48,8 @@
       </ul>
     </nav>
   </div>
-  <Box url="./InRoomPage"></Box>
-  
+  <Box url="./InRoom" room_box_name="Not Leader"></Box>
+  <Box url="./InRoomLeader" room_box_name="Leader"></Box>  
 </body>
 
 <style>

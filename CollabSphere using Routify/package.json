@@ -2,7 +2,7 @@
     "name": "routify-starter",
     "private": true,
     "scripts": {
-        "dev": "vite",
+        "dev": "run-p dev:*",
         "dev:routify": "routify",
         "dev:vite": "vite",
         "preview": "vite preview",
