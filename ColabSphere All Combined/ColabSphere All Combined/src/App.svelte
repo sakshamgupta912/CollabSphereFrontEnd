@@ -1,10 +1,18 @@
 <script>
-	import Router from 'svelte-spa-router';
-	import { routes } from './routes';
+	import Router,{location}from 'svelte-spa-router';
+	import InRoomPage from './routes/InRoomPage.svelte';
+	import HomePage from './routes/homePage.svelte';
+	import Hi from './routes/hi.svelte';
+    import InRoom from './inroom/InRoom.svelte';
+	
 </script>
 
-<main>
-	<Router {routes} />
-</main>
+<Router routes={{
+	'/':HomePage,
+	'/InRoomPage': InRoom
+}}/>
+
+<hr> {location} 
+
 
 

@@ -2,7 +2,8 @@
 	import Annoucement from "./Tabs/Annoucement.svelte";
 	import Assignment from "./Tabs/Assignment.svelte";
 	import Members from "./Tabs/Members.svelte";
-
+	import "./Header.css";
+	import "./Hamburger.css";
 	let activeTab=Annoucement;
 	
 </script>
