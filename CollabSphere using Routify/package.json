@@ -23,6 +23,7 @@
         "vite": "^3.1.0"
     },
     "dependencies": {
+        "electron": "^23.2.0",
         "express": "^4.18.2",
         "tossr": "^1.4.2"
     }

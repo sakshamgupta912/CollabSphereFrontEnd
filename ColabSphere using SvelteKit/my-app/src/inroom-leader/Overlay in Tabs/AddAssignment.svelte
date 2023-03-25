@@ -1,0 +1,163 @@
+<script>
+    let title = '';
+    let description = '';
+    let files = [];
+    
+    const handleFileInput = (event) => {
+      files = [...files, ...event.target.files];
+    };
+    
+    const removeFile = (index) => {
+      files.splice(index, 1);
+      files = [...files];
+    };
+
+    const handleAdd = () => {
+		const formData = new FormData();
+
+		formData.append("", title);
+		formData.append("message", description);
+
+		for (let i = 0; i < files.length; i++) {
+			formData.append("files", files[i]);
+		}
+
+		fetch("/api/send", {
+			method: "POST",
+			body: formData,
+		}).then((response) => {
+			if (response.ok) {
+				alert("Message sent successfully!");
+			} else {
+				alert("Failed to send message.");
+			}
+		});
+    };
+
+    const handleReset = () => {
+  title = '';
+  description = '';
+  files = [];
+};
+
+  </script>
+
+<div class="AddAssignment">
+    <h1 style="font-size:1.5rem">Add Assignment</h1>
+   
+		
+      <div class="Title">
+        <label for="title">Title</label>
+        <input bind:value={title} type="text" placeholder="Enter the title of the assignment" />
+      </div>
+      <div class="Description">
+        <label for="description">Description</label>
+        <textarea bind:value={description} placeholder="Enter the description of the assignment"></textarea>
+    </div>
+  
+  
+  <input type="file" multiple on:change={handleFileInput} />
+  
+  <div class="upload-section">
+    {#each files as file, index}
+      <div>
+        <span>{file.name}</span>
+        <button on:click={() => removeFile(index)}>Remove</button>
+      </div>
+    {/each}
+  </div>
+  <div class="buttons-section">
+    <button on:click={handleAdd}>Add</button>
+    <button on:click={handleReset}>Reset</button>
+
+</div>
+</div>
+  <style>
+    .AddAssignment{
+      padding: 10px;
+		background-color: rgba(255, 87, 87, 0.486);
+		margin: 10%;
+		border-radius: 10px;
+    }
+    .Title
+    {
+      display: flex;
+		flex-direction: column;
+		margin-bottom: 20px;
+    }
+    .Description
+    {
+      display: flex;
+      
+		flex-direction: column;
+		margin-bottom: 20px;
+    }
+    h1 {
+      font-size: 1.0rem;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+    label {
+		font-weight: bold;
+		margin-bottom: 0.5rem;
+	  }
+    input[type="text"],
+	textarea {
+		padding: 0.5rem;
+		border: 1px solid #ccc;
+		border-radius: 0.25rem;
+		font-size: 1rem;
+		margin-bottom: 0.5rem;
+    resize: none;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	}
+    
+    .upload-section{
+      margin: 2%;
+    }
+
+    .file {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+    
+    .file span {
+      flex: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    
+    .file button {
+      margin-left: 1rem;
+      padding: 0.25rem 0.5rem;
+      border: none;
+      border-radius: 0.25rem;
+      background-color: #f44336;
+      color: white;
+      cursor: pointer;
+    }
+    
+    .file button:hover {
+      background-color: #d32f2f;
+    }
+    button {
+		background-color: #4285f4;
+		color: #fff;
+		border: none;
+		border-radius: 0.25rem;
+		padding: 0.5rem 1rem;
+		font-size: 1rem;
+		cursor: pointer;
+		margin-right: 10px;
+	}
+
+	button:hover {
+		background-color: #3367d6;
+	}
+
+	button:active {
+		background-color: #2a56c6;
+	}
+  </style>
+  
