@@ -1,4 +1,5 @@
-#🌐 Collabsphere Front End 🖥️
+#Collabsphere Front End🖥️
+
 
 This repository contains the front-end code for Collabsphere, a project aimed at revolutionizing online collaboration and education. Collabsphere provides organizations with a unique approach by utilizing their own servers, giving them exclusive privileges and control over the software.
 
