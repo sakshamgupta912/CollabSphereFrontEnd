@@ -19,14 +19,15 @@ API Integration: 🔁 Seamless communication with the Collabsphere back end for 
 
 🚀 Getting Started 🏁
 To get started with the Collabsphere Front End repository:
-
 Clone the repository to your local machine.
 Install the necessary dependencies by running npm install.
 Start the development server with npm run dev.
 Access the Collabsphere front-end application through your browser.
 
 🤝 Contributing 🌟
+
 We welcome contributions from the open-source community to enhance the Collabsphere Front End. Please refer to our Contribution Guidelines for more details on how to contribute.
 
 📝 License 📄
+
 The Collabsphere Front End code is released under the MIT License, granting users the freedom to use, modify, and distribute the software.
